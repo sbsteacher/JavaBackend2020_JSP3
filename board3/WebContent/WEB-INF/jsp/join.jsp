@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div>
+		<div>${msg}</div>
 		<form id="frm" action="/join" method="post" onsubmit="return chk()">
 			<div><input type="text" name="cid" placeholder="아이디"></div>
 			<div><input type="password" name="cpw" placeholder="비밀번호"></div>

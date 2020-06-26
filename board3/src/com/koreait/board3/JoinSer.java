@@ -34,6 +34,13 @@ public class JoinSer extends HttpServlet {
 		param.setNm(nm);
 		
 		int result = UserDAO.join(param);
+		System.out.println("result : " + result);
+		if(result == 1) {
+			response.sendRedirect("/login");
+		} else {
+			request.setAttribute("msg", "회원가입에 실패하였습니다.");
+			doGet(request, response);
+		}
 	}
 
 }
