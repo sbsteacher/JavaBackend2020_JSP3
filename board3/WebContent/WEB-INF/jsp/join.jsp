@@ -18,7 +18,23 @@
 	</div>
 	<script>
 		function chk() {
-			
+			if(frm.cid.value.length == 0) {
+				alert('아이디를 입력해 주세요.')
+				frm.cid.focus()
+				return false
+			} else if(frm.cpw.value == '') {
+				alert('비밀번호를 입력해 주세요.')
+				frm.cpw.focus()
+				return false
+			} else if(frm.cpw.value != frm.recpw.value) {
+				alert('비밀번호를 확인해 주세요.')
+				frm.cpw.focus()
+				return false
+			} else if(frm.nm.value.length == 0) {
+				alert('이름을 입력해 주세요.')
+				frm.nm.focus()
+				return false
+			}			
 		}
 	</script>
 </body>
