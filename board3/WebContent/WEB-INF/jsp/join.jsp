@@ -10,10 +10,10 @@
 	<div>
 		<div>${msg}</div>
 		<form id="frm" action="/join" method="post" onsubmit="return chk()">
-			<div><input type="text" name="cid" placeholder="아이디"></div>
-			<div><input type="password" name="cpw" placeholder="비밀번호"></div>
-			<div><input type="password" name="recpw" placeholder="비밀번호 확인"></div>
-			<div><input type="text" name="nm" placeholder="이름"></div>
+			<div><input type="text" name="cid" placeholder="아이디" value="${data.cid}"></div>
+			<div><input type="password" name="cpw" placeholder="비밀번호"  value="${data.cpw}"></div>
+			<div><input type="password" name="recpw" placeholder="비밀번호 확인"  value="${data.cpw}"></div>
+			<div><input type="text" name="nm" placeholder="이름"  value="${data.nm}"></div>
 			<div><input type="submit" value="회원가입"></div>
 		</form>
 	</div>

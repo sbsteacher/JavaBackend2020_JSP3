@@ -38,6 +38,7 @@ public class JoinSer extends HttpServlet {
 		if(result == 1) {
 			response.sendRedirect("/login");
 		} else {
+			request.setAttribute("data", param);
 			request.setAttribute("msg", "회원가입에 실패하였습니다.");
 			doGet(request, response);
 		}
