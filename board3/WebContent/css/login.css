@@ -6,7 +6,7 @@
 	align-items: center;	
 }
 
-#loginForm {
+#frm {
 	width: 250px;
 	height: 250px;
 	background-color: #ecf0f1;
@@ -16,3 +16,5 @@
 	align-items: center;
 	border: 1px solid #bdc3c7;
 }
+
+

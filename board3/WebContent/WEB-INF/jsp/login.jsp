@@ -4,18 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
 	<div id="container">
-		<div id="loginForm">
+		<form id="frm" action="/login" method="post">
 			<div><input type="text" name="cid" placeholder="id"></div>
-			<div><input type="password" name="cid" placeholder="password"></div>
+			<div><input type="password" name="cpw" placeholder="password"></div>
 			<div><input type="submit" value="Login"></div>
 			<div><a href="/join">회원가입</a></div>
-		</div>
+		</form>
 	</div>
 </body>
 </html>
