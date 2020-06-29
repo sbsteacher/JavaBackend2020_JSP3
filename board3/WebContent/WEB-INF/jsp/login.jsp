@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div id="container">
+		<div>${msg}</div>
 		<form id="frm" action="/login" method="post">
-			<div><input type="text" name="cid" placeholder="id"></div>
+			<div><input type="text" name="cid" placeholder="id" value="${writedCid}"></div>
 			<div><input type="password" name="cpw" placeholder="password"></div>
 			<div><input type="submit" value="Login"></div>
 			<div><a href="/join">회원가입</a></div>
