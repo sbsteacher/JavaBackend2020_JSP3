@@ -41,7 +41,7 @@ public class UserDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;		
-		String sql = " SELECT cpw FROM t_user3 WHERE cid = ? ";
+		String sql = " SELECT i_user, cpw, nm FROM t_user3 WHERE cid = ? ";
 		
 		try {
 			con = DbCon.getCon();
@@ -50,7 +50,20 @@ public class UserDAO {
 			rs = ps.executeQuery();			
 			if(rs.next()) {
 				String dbCpw = rs.getNString("cpw");				
-				result = dbCpw.equals(param.getCpw()) ? 1 : 3;
+				//result = dbCpw.equals(param.getCpw()) ? 1 : 3;
+				
+				if(dbCpw.equals(param.getCpw())) {
+					int i_user = rs.getInt("i_user");
+					String nm = rs.getNString("nm");
+					
+					param.setI_user(i_user);
+					param.setNm(nm);
+					
+					result = 1;
+				} else {
+					result = 3;
+				}
+				
 			} else {
 				result = 2;
 			}			

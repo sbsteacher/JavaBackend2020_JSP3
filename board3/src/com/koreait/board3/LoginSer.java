@@ -1,11 +1,13 @@
 package com.koreait.board3;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.koreait.board3.dao.UserDAO;
 import com.koreait.board3.vo.UserVO;
@@ -33,22 +35,27 @@ public class LoginSer extends HttpServlet {
 		//0, 1, 2, 3
 		int result = UserDAO.login(param);
 		if(result == 1) {
-			response.sendRedirect("/boardList ");
-		} else {
-			String msg = "에러발생";			
-			switch(result) {
-				case 2:
-					msg = "아이디가 없습니다.";
-					break;
-				case 3:
-					msg = "비밀번호를 확인해 주세요.";
-					break;
-			}
+			HttpSession hs = request.getSession();
 			
-			request.setAttribute("msg", msg);
-			request.setAttribute("writedCid", cid);			
-			doGet(request, response);
+			param.setCpw(null);
+			hs.setAttribute("loginUser", param);
+			response.sendRedirect("/boardList ");
+			return;
 		}
+		
+		String msg = "에러발생";			
+		switch(result) {
+			case 2:
+				msg = "아이디가 없습니다.";
+				break;
+			case 3:
+				msg = "비밀번호를 확인해 주세요.";
+				break;
+		}
+		
+		request.setAttribute("msg", msg);
+		request.setAttribute("writedCid", cid);			
+		doGet(request, response);
 	}
 
 }
