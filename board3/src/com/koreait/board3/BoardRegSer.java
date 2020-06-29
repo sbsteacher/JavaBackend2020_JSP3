@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.koreait.board3.dao.BoardDAO;
 import com.koreait.board3.vo.*;
 
 @WebServlet("/boardReg")
@@ -40,8 +41,11 @@ public class BoardRegSer extends HttpServlet {
 		param.setI_user(loginUser.getI_user());
 		
 		if("".equals(strI_board)) { //등록
-			BoardDAO.regBoard(param);
+			int i_board = BoardDAO.regBoard(param);
+			//보드디테일 화면으로 이동
+			
 			//리스트화면으로 이동
+			response.sendRedirect("/boardList");
 		
 		} else { //수정
 			int i_board = Integer.parseInt(strI_board);
