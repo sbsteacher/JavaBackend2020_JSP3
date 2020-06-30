@@ -42,6 +42,7 @@ public class BoardRegSer extends HttpServlet {
 		
 		if("".equals(strI_board)) { //등록
 			int i_board = BoardDAO.regBoard(param);
+			//response.sendRedirect("/boardDetail?i_board" + i_board);
 			//보드디테일 화면으로 이동
 			
 			//리스트화면으로 이동
