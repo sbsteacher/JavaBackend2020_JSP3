@@ -88,6 +88,52 @@ public class BoardDAO {
 		
 		return list;
 	}
+	
+	public static BoardListModel selectBoardList(int i_board) {
+		BoardListModel result = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = " SELECT " + 
+				"    A.i_board, A.title, A.r_dt, A.ctnt " + 
+				"    , B.i_user, B.nm as userNm " + 
+				" FROM t_board3 A " + 
+				" INNER JOIN t_user3 B " + 
+				" ON A.i_user = B.i_user " + 
+				" WHERE A.i_board = ? ";
+		
+		try {
+			con = DbCon.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, i_board);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = new BoardListModel();
+								
+				String title = rs.getNString("title");
+				String ctnt = rs.getNString("ctnt");
+				String r_dt = rs.getNString("r_dt");
+				int i_user = rs.getInt("i_user");
+				String userNm = rs.getNString("userNm");
+				
+				result.setI_board(i_board);
+				result.setTitle(title);
+				result.setCtnt(ctnt);
+				result.setR_dt(r_dt);
+				result.setI_user(i_user);
+				result.setUserNm(userNm);
+			}
+			
+		} catch (Exception e) {			
+			e.printStackTrace();
+		} finally {
+			DbCon.close(con, ps, rs);
+		}
+		
+		return result;
+	}
 }
 
 
