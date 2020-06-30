@@ -21,8 +21,18 @@
 				<th>작성일</th>
 				<th>작성자</th>
 			</tr>
-			
+			<c:forEach var="item" items="${data}">
+				<tr>
+					<td>${item.i_board}</td>
+					<td>${item.title }</td>
+					<td>${item.r_dt }</td>
+					<td>${item.userNm }</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div> 
 </body>
 </html>
+
+
+
