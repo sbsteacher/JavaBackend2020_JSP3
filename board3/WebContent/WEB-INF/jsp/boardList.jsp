@@ -7,6 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<style>
+	.boardItem:hover {
+		background-color: #bdc3c7;
+		cursor: pointer;
+	}
+</style>
 </head>
 <body>
 	<div>		
@@ -22,7 +29,7 @@
 				<th>작성자</th>
 			</tr>
 			<c:forEach var="item" items="${data}">
-				<tr>
+				<tr class="boardItem" onclick="moveToDetail(${item.i_board})">
 					<td>${item.i_board}</td>
 					<td>${item.title }</td>
 					<td>${item.r_dt }</td>
@@ -31,6 +38,11 @@
 			</c:forEach>
 		</table>
 	</div> 
+	<script>
+		function moveToDetail(i_board) {
+			location.href = '/boardDetail?i_board=' + i_board
+		}
+	</script>
 </body>
 </html>
 
