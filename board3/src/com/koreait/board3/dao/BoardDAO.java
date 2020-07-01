@@ -89,7 +89,7 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public static BoardListModel selectBoardList(int i_board) {
+	public static BoardListModel selectBoard(int i_board) {
 		BoardListModel result = null;
 		Connection con = null;
 		PreparedStatement ps = null;

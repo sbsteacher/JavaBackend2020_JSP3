@@ -8,11 +8,16 @@
 <title>디테일</title>
 </head>
 <body>
+	${loginUser.i_user }, ${data.i_user }
 	<c:if test="${loginUser.i_user == data.i_user }">
 		<div>
-			<button>수정</button> <button>삭제</button>
+			<button>수정</button>
+			<a href="/boardDel?i_board=${data.i_board}"><button>삭제</button></a>
 		</div>
 	</c:if>
+	<div>
+		${msg }
+	</div>
 	<div>
 		${data.title }, ${data.ctnt }, ${data.r_dt }, ${data.userNm }
 	</div>

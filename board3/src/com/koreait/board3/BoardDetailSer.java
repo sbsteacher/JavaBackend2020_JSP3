@@ -22,7 +22,7 @@ public class BoardDetailSer extends HttpServlet {
 		}
 		
 		int i_board = Integer.parseInt(request.getParameter("i_board"));		
-		request.setAttribute("data", BoardDAO.selectBoardList(i_board));
+		request.setAttribute("data", BoardDAO.selectBoard(i_board));
 		
 		String jsp = "/WEB-INF/jsp/boardDetail.jsp";
 		request.getRequestDispatcher(jsp).forward(request, response);
