@@ -34,7 +34,7 @@ public class LoginSer extends HttpServlet {
 		
 		//0, 1, 2, 3
 		int result = UserDAO.login(param);
-		if(result == 1) {
+		if(result == 1) { //로그인 성공
 			HttpSession hs = request.getSession();
 			
 			param.setCpw(null);
