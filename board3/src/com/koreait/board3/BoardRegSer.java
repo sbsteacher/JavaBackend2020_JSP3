@@ -42,19 +42,25 @@ public class BoardRegSer extends HttpServlet {
 		
 		if("".equals(strI_board)) { //등록
 			int i_board = BoardDAO.regBoard(param);
-			//response.sendRedirect("/boardDetail?i_board" + i_board);
+			response.sendRedirect("/boardDetail?i_board=" + i_board);
 			//보드디테일 화면으로 이동
 			
 			//리스트화면으로 이동
-			response.sendRedirect("/boardList");
+			//response.sendRedirect("/boardList");
+			return;
+		} 
+		//수정
+		int i_board = Integer.parseInt(strI_board);
+		param.setI_board(i_board);
 		
-		} else { //수정
-			int i_board = Integer.parseInt(strI_board);
-			param.setI_board(i_board);
-			
-			
-			
+		int result = BoardDAO.modBoard(param);
+		String qStr = "";
+		if(result == 0) {
+			qStr = "&err=2";
 		}
+		String url = String.format("/boardDetail?i_board=%d%s", i_board, qStr);
+		response.sendRedirect(url);
+
 	}
 
 }

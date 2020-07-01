@@ -31,4 +31,9 @@ public class BoardListSer extends HttpServlet {
 		request.getRequestDispatcher(jsp).forward(request, response);
 	}
 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession hs = request.getSession();
+		hs.invalidate();
+		response.sendRedirect("/login");
+	}
 }

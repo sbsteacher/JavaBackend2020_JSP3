@@ -29,6 +29,9 @@ public class BoardDetailSer extends HttpServlet {
 			case "1":
 				msg = "삭제 실패";
 				break;
+			case "2":
+				msg = "수정 실패";
+				break;
 			}
 			
 			request.setAttribute("msg",  msg);

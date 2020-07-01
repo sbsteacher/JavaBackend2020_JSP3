@@ -19,6 +19,9 @@
 	<div>		
 		${loginUser.nm}님 환영합니다! 
 		<a href="/boardReg"><button>글쓰기</button></a>
+		<form action="/boardList" method="post">
+			<input type="submit" value="로그아웃">
+		</form>
 	</div>
 	<div>
 		<table>
