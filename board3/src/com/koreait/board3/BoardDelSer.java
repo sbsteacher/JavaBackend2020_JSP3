@@ -33,8 +33,9 @@ public class BoardDelSer extends HttpServlet {
 		
 		int result = BoardDAO.delBoard(param); //0:삭제 실패, 1:삭제 완료
 		if(result == 0) { //디테일
-			request.setAttribute("msg", "삭제 실패");
-			request.getRequestDispatcher("/boardDetail?i_board=" + i_board).forward(request, response);
+			
+			String url = String.format("/boardDetail?i_board=%d&err=1", i_board);
+			response.sendRedirect(url);
 			return;
 		} 
 		

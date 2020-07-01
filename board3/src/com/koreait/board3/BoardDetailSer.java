@@ -21,6 +21,18 @@ public class BoardDetailSer extends HttpServlet {
 			return;
 		}
 		
+		String err = request.getParameter("err");
+		if(err != null) {
+			String msg = "";
+			switch(err) {
+			case "1":
+				msg = "삭제 실패";
+				break;
+			}
+			
+			request.setAttribute("msg",  msg);
+		}
+		
 		int i_board = Integer.parseInt(request.getParameter("i_board"));		
 		request.setAttribute("data", BoardDAO.selectBoard(i_board));
 		
