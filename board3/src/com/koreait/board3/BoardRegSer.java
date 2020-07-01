@@ -52,6 +52,8 @@ public class BoardRegSer extends HttpServlet {
 			int i_board = Integer.parseInt(strI_board);
 			param.setI_board(i_board);
 			
+			
+			
 		}
 	}
 

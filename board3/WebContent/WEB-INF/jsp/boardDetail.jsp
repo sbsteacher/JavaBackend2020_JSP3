@@ -12,7 +12,7 @@
 	${loginUser.i_user }, ${data.i_user }
 	<c:if test="${loginUser.i_user == data.i_user }">
 		<div>
-			<button>수정</button>
+			<a href="/boardDetail?i_board=${data.i_board}&typ=mod"><button>수정</button></a>
 			<a href="/boardDel?i_board=${data.i_board}"><button>삭제</button></a>
 		</div>
 	</c:if>

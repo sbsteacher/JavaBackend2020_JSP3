@@ -20,6 +20,7 @@ public class BoardDetailSer extends HttpServlet {
 			response.sendRedirect("/login");
 			return;
 		}
+		String typ = request.getParameter("typ");
 		
 		String err = request.getParameter("err");
 		if(err != null) {
@@ -37,6 +38,10 @@ public class BoardDetailSer extends HttpServlet {
 		request.setAttribute("data", BoardDAO.selectBoard(i_board));
 		
 		String jsp = "/WEB-INF/jsp/boardDetail.jsp";
+		if("mod".equals(typ)) {
+			jsp = "/WEB-INF/jsp/boardRegmod.jsp";
+		}
+		
 		request.getRequestDispatcher(jsp).forward(request, response);
 	}
 
